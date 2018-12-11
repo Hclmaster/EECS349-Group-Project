@@ -22,6 +22,16 @@ The results show the model accuracy based on different methods. **Insert TABLE!!
 
 And after we trained the network, it can output the accuracy and predict whether this image is real or fake.
 
+|Algorithm|Accuracy|
+|---|---|
+|1NN (Pixel Representation) - L1 Distance| 17%|
+|1NN (Pixel Representation) - Cosine Similarity|50%|
+|1NN (VGG Representation) -  L1 Distance|84.26%|
+|1NN (VGG Representation) - L2 Distance|84.26%|
+|3NN (VGG Representation) - majority vote|82.95%|
+|Neural Networks|94.77%|
+|SVM|81.67%|
+
 
 ## Related Work
 ### Dataset Cleaning
