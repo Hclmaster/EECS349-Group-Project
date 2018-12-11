@@ -53,5 +53,12 @@ In this project, we applied three training methods: K Nearest Neighbor, Neural N
   
 - **SVM**
   
-  The features that we used in SVM is also feature vector. 
+  The features that we used in SVM is also feature vector. Because we want to achieve binary classification in this project, so we just assign -1 to 'fake' label and 1 to 'real' label. And we use Hinge Loss as our loss function. Finally we got 81.67% accuracy on test dataset.
+  
 
+
+## Conclusion & Future Works
+
+At beginning, we just train the model on a small part of the dataset, and we found that the model accuracy is not very high, and it seems that the nearest neighbor got the highest accuracy compared to neural networks. However, when we increased the training dataset and feed more images to the network, it seems that it got better, and reach 94.77% accuracy. 
+
+Because for the limit of the time, we didn't try enough machine learning algorithms, and I think that's will be our major future works. For example, we could still try to use Boosting algorithm to classify the images. And we can still try to use other CNN models, e.g, AlexNet, GoogleNet, and see what happens.
