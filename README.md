@@ -35,7 +35,7 @@ And after we trained the network, it can output the accuracy and predict whether
 
 ## Related Work
 ### Dataset Cleaning
-We obtaint the dataset from ICDAR 2011 Signature Verification Competition. The whole dataset contains the signatures of 67 persons. Each person has 12 real and fake images. At first, our dataset is a bit messy, and we spent some time on cleaning the data and make each images to have the correct label.
+We obtaint the dataset from [ICDAR 2011 Signature Verification Competition](http://www.iapr-tc11.org/mediawiki/index.php/ICDAR_2011_Signature_Verification_Competition_(SigComp2011)). The whole dataset contains the signatures of 67 persons. Each person has 12 real and fake images. At first, our dataset is a bit messy, and we spent some time on cleaning the data and make each images to have the correct label.
 
 ### Features Extraction
 At first, we just simply extract the pixel value of each image and calculate the pixel difference between each image. However, the result is bad, we only get 17% accuracy on nearest neighbor algorithm. Thanks to Prof. Downey, after talking with him, we found that we can use transfer learning to extract the features of our images, and after that we can build our own classifier on top of that.
@@ -91,3 +91,7 @@ In this project, we applied three training methods: K Nearest Neighbor, Neural N
 At beginning, we just train the model on a small part of the dataset, and we found that the model accuracy is not very high, and it seems that the nearest neighbor got the highest accuracy compared to neural networks. However, when we increased the training dataset and feed more images to the network, it seems that it got better, and reach 94.77% accuracy. 
 
 Because for the limit of the time, we didn't try enough machine learning algorithms, and I think that's will be our major future works. For example, we could still try to use Boosting algorithm to classify the images. And we can also try to use other CNN models, e.g, AlexNet, GoogleNet, and see what happens.
+
+
+## Reference
+[Offline Signature Verification with Convolutional Neural Networks](http://cs231n.stanford.edu/reports/2016/pdfs/276_Report.pdf)
