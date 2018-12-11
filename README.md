@@ -32,45 +32,26 @@ At first, we just simply extract the pixel value of each image and calculate the
 
 The architecture of VGG Network is shown below. It contains 4 convolutional layers, 3 fully connected layers and softmax output layer, the hidden layer uses ReLU activation function. Because VGG Network is a good feature extractor, so the idea in our project is that we uses VGG Network to extract the feature of the raw images, and get the feature vector of these images.
 
-### Model Training 
+### Methods
 In this project, we applied three training methods: K Nearest Neighbor, Neural Networks, Support Vector Machine.
 
+- **K Nearest Neighbor (pixel value representation)**
+  
+  At first, we just manually extract the pixel values of the grayscale images and convert the whole matrix into a vector, and for each image in the test dataset, we try to find the image which has the minimun L1 distance in the training set, and finally we only got 17% accuracy which is pretty low.
 
+  After that, we tried cosine_similarity on nearest neighbor. Since we don’t care the exact gray value of each pixel and only want to contrast the value for white and black point, we form a new matrix whose elements are all “0” or “1”. For pixel scale value that is larger than 127, the corresponding value is 0; otherwise it’s 1. Inspired by homework4, we tried cosine similarity to measure the distance of pictures, the accuracy we got is 50%.
 
-### Welcome to GitHub Pages
+- **K Nearest Neighbor (VGG representation)**
+  
+  Because raw pixel representation doesn't extract feature of the image very well, so we first put all training and test dataset images to the VGG Network, and get the feature vectors. Then we just use the L1 distance (Manhattan distances) and L2 distance (Euclidean distances) to calculate the nearest neighbor. This time, the accuracy was much better, it got 84.26% for both L1 and L2 distance. And when we try K=3 and assign the majority of the class label to this test image, it got accuracy a bit lower, with 82.95%.
 
-You can use the [editor on GitHub](https://github.com/Hclmaster/EECS349-Group-Project/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+- **Neural Networks**
+  
+  With our images being converted as feature vector, we use it as the input for our network, each of them are 4096D vectors. And we also one-hot encoding our labels to become 0 and 1 as there are just two classes in our dataset. We use softmax activation function for our output layer, and use cross entropy to calculate the cost while use Adam as our optimizer. And finally we got 94.77% accuracy on the test dataset, which is the best test accuracy we got on all of the model we have tried so far.
+  
+  Below is the example picture that we tried to predict the image output label, that's whether is real or fake.
+  
+- **SVM**
+  
+  The features that we used in SVM is also feature vector. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Hclmaster/EECS349-Group-Project/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
