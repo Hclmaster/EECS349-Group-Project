@@ -2,6 +2,7 @@
 
 ## Group Member
 Chenghong Lin ([chenghonglin2020@u.northwestern.edu](mailto:chenghonglin2020@u.northwestern.edu))
+
 Xiangguo Liu ([xg.liu@u.northwestern.edu](mailto:xg.liu@u.northwestern.edu))
 
 ## Abstract
@@ -13,11 +14,10 @@ There are two reasons why we are interested in this task. Firstly, nowadays the 
 
 
 ### Approach
-We adopted three methods (K-Nearest Neighbor, Neural Networks, Support Vector Machine) to solve this problem. At first, pixel values of images are extracted as features to be used in KNN(pixel), however, this accuracy is pretty low, it only gets about 17% accuracy. Next, we tried to use transfer learning to extra features of the images. And VGGNet is utilized to get new representative features of the images. Then these new features are used in KNN(vgg), NN and SVM. 80% dataset is utilized as the training dataset, 10% is validation dataset, and the remain 10% is test dataset. Neural Networks provides the best performance, its accuracy is 94.77%. Use VGG representation is considered to have better performance than pixel representation.
+We adopted three methods (K-Nearest Neighbor, Neural Networks, Support Vector Machine) to solve this problem. At first, pixel values of images are extracted as features to be used in KNN(pixel), however, this accuracy is pretty low, it only gets about 17% accuracy. Next, we tried to use transfer learning to extra features of the images. And VGGNet is utilized to get new representative features of the images. Then these new features are used in KNN(vgg), NN and SVM. 80% dataset is utilized as the training dataset, 10% is validation dataset, and the remain 10% is test dataset. Neural Networks provides the best performance, its accuracy is 94.77%. Use VGG representation is considered to have better performance than pixel representation. **As we are processing the images, so the most important feature is the feature of the image.?**
 
 
 ## Results
-Put IMAGE HERE!
 The results show the model accuracy based on different methods. **Insert TABLE!!!*
 
 And after we trained the network, it can output the accuracy and predict whether this image is real or fake.
@@ -32,6 +32,12 @@ At first, we just simply extract the pixel value of each image and calculate the
 
 The architecture of VGG Network is shown below. It contains 4 convolutional layers, 3 fully connected layers and softmax output layer, the hidden layer uses ReLU activation function. Because VGG Network is a good feature extractor, so the idea in our project is that we uses VGG Network to extract the feature of the raw images, and get the feature vector of these images.
 
+<p align="center">
+    <img src="pic/vggnet_architecture.png"><br />
+    <i>VGGNet Architecture</i>
+</p>
+
+
 ### Methods
 In this project, we applied three training methods: K Nearest Neighbor, Neural Networks, Support Vector Machine.
 
@@ -43,17 +49,30 @@ In this project, we applied three training methods: K Nearest Neighbor, Neural N
 
 - **K Nearest Neighbor (VGG representation)**
   
-  Because raw pixel representation doesn't extract feature of the image very well, so we first put all training and test dataset images to the VGG Network, and get the feature vectors. Then we just use the L1 distance (Manhattan distances) and L2 distance (Euclidean distances) to calculate the nearest neighbor. This time, the accuracy was much better, it got 84.26% for both L1 and L2 distance. And when we try K=3 and assign the majority of the class label to this test image, it got accuracy a bit lower, with 82.95%.
+  Because raw pixel representation doesn't extract feature of the image very well, so we first put all training and test dataset images to the VGG Network, and get the feature vectors. Then we just use the L1 distance (Manhattan distances) and L2 distance (Euclidean distances) to calculate the nearest neighbor. This time, the accuracy was much better, it got 84.26% for both L1 and L2 distance. And when we try K=3 and assign the majority of the 3 nearest neighbors' class label to this test image, it got accuracy a bit lower, with 82.95%.
 
 - **Neural Networks**
   
   With our images being converted as feature vector, we use it as the input for our network, each of them are 4096D vectors. And we also one-hot encoding our labels to become 0 and 1 as there are just two classes in our dataset. We use softmax activation function for our output layer, and use cross entropy to calculate the cost while use Adam as our optimizer. And finally we got 94.77% accuracy on the test dataset, which is the best test accuracy we got on all of the model we have tried so far.
   
-  Below is the example picture that we tried to predict the image output label, that's whether is real or fake.
+  Below is the example picture that we tried to predict the image's output label, that's whether is real or fake.
+  
+  <p align="center">
+    <img src="pic/download.png"><br />
+    <i>Input Image</i>
+  </p>  
+  
+  <p align="center">
+    <img src="pic/prediction.png"><br />
+  <i>Predict Result</i>
+  </p>
+  
   
 - **SVM**
   
   The features that we used in SVM is also feature vector. Because we want to achieve binary classification in this project, so we just assign -1 to 'fake' label and 1 to 'real' label. And we use Hinge Loss as our loss function. Finally we got 81.67% accuracy on test dataset.
+  
+  **insert equation & can be more specific**
   
 
 
@@ -61,4 +80,4 @@ In this project, we applied three training methods: K Nearest Neighbor, Neural N
 
 At beginning, we just train the model on a small part of the dataset, and we found that the model accuracy is not very high, and it seems that the nearest neighbor got the highest accuracy compared to neural networks. However, when we increased the training dataset and feed more images to the network, it seems that it got better, and reach 94.77% accuracy. 
 
-Because for the limit of the time, we didn't try enough machine learning algorithms, and I think that's will be our major future works. For example, we could still try to use Boosting algorithm to classify the images. And we can still try to use other CNN models, e.g, AlexNet, GoogleNet, and see what happens.
+Because for the limit of the time, we didn't try enough machine learning algorithms, and I think that's will be our major future works. For example, we could still try to use Boosting algorithm to classify the images. And we can also try to use other CNN models, e.g, AlexNet, GoogleNet, and see what happens.
