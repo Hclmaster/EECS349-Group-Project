@@ -29,8 +29,8 @@ And after we trained the network, it can output the accuracy and predict whether
 |1NN (VGG Representation) -  L1 Distance|84.26%|
 |1NN (VGG Representation) - L2 Distance|84.26%|
 |3NN (VGG Representation) - majority vote|82.95%|
-|Neural Networks|94.77%|
 |Support Vector Machine|81.67%|
+|Neural Networks|94.77%|
 
 
 ## Related Work
