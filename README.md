@@ -14,7 +14,7 @@ There are two reasons why we are interested in this task. Firstly, nowadays the 
 
 
 ### Approach
-We adopted three methods (K-Nearest Neighbor, Neural Networks, Support Vector Machine) to solve this problem. At first, pixel values of images are extracted as features to be used in KNN(pixel), however, this accuracy is pretty low, it only gets about 17% accuracy. Next, we tried to use transfer learning to extra features of the images. And VGGNet is utilized to get new representative features of the images. Then these new features are used in KNN(vgg), NN and SVM. 80% dataset is utilized as the training dataset, 10% is validation dataset, and the remain 10% is test dataset. Neural Networks provides the best performance, its accuracy is 94.77%. Use VGG representation is considered to have better performance than pixel representation. As we are processing the images, so the most important feature is the feature of the image.
+We adopted three methods (K-Nearest Neighbor, Neural Networks, Support Vector Machine) to solve this problem. At first, pixel values of images are extracted as features to be used in KNN(pixel), however, this accuracy is pretty low, it only gets about 17% accuracy. Next, we tried to use transfer learning to extract features of the images. And VGGNet is utilized to get new representative features of the images. Then these new features are used in KNN(vgg), NN and SVM. 80% dataset is utilized as the training dataset, 10% is validation dataset, and the remain 10% is test dataset. Neural Networks provides the best performance, its accuracy is 94.77%. Use VGG representation is considered to have better performance than pixel representation. As we are processing the images, so the most important feature is the image.
 
 
 ## Results
@@ -82,8 +82,6 @@ In this project, we applied three training methods: K Nearest Neighbor, Neural N
   
   The features that we used in SVM is also feature vector. Because we want to achieve binary classification in this project, so we just assign -1 to 'fake' label and 1 to 'real' label. And we use Hinge Loss as our loss function. Finally we got 81.67% accuracy on test dataset.
   
-  **insert equation & can be more specific**
-  
 
 
 ## Conclusion & Future Works
@@ -95,3 +93,6 @@ Because for the limit of the time, we didn't try enough machine learning algorit
 
 ## Reference
 [Offline Signature Verification with Convolutional Neural Networks](http://cs231n.stanford.edu/reports/2016/pdfs/276_Report.pdf)
+
+## More Details
+[Please read our entire report!](https://github.com/Hclmaster/Offline-Handwritten-Verification-System/blob/master/group%20report.pdf)
