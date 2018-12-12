@@ -95,4 +95,5 @@ Because for the limit of the time, we didn't try enough machine learning algorit
 [Offline Signature Verification with Convolutional Neural Networks](http://cs231n.stanford.edu/reports/2016/pdfs/276_Report.pdf)
 
 ## More Details
-[Please read our entire report!](https://github.com/Hclmaster/Offline-Handwritten-Verification-System/blob/master/pdf/group%20report.pdf)
+[Please read our entire report!](https://hclmaster.github.io/Offline-Handwritten-Verification-System/group%20report.pdf)
+
